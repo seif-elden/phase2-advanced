@@ -18,6 +18,8 @@ public class addpostcontroller implements Initializable {
     @FXML
     private Button p_submit;
     @FXML
+    private Button back;
+    @FXML
     private TextArea p_content;
 
 
@@ -28,8 +30,21 @@ public class addpostcontroller implements Initializable {
 
     private void setupButtonActions() {
         p_submit.setOnAction(event -> submitpost());
-    }
+        back.setOnAction(event -> goback());
 
+    }
+    private void goback() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("home.fxml")); // Ensure the path is correct
+            Scene scene = new Scene(loader.load());
+            Stage stage = (Stage) back.getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("home!");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     private void submitpost() {
 
         String content = p_content.getText();

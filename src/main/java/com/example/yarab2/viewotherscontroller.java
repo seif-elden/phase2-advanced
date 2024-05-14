@@ -97,14 +97,31 @@ public class viewotherscontroller implements Initializable {
                 } else {
                     // Custom display text for each post
                     setText(
-                            "content : " + post.getContent() +"\n" +
+                            "author : " + post.getAuthor().getUsername() +"\n" +
+                                    "content : " + post.getContent() +"\n" +
                                     "number of likes : " + post.likeCount() +"\n" +
                                     "number of comments : " + post.commentCount() +"\n"
 
                     );  // Adjust this line to display whatever details you want
+                    setOnMouseClicked(event -> gotopost(post));
                 }
             }
         });
+    }
+
+    private void gotopost(Post p){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("showpost.fxml")); // Ensure the path is correct
+            Scene scene = new Scene(loader.load());
+            showpostcontroller controller = loader.getController(); // Retrieve the controller
+            controller.initData(p); // Pass the profile to the controller
+            Stage stage = (Stage) back.getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("post profile!");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void goback() {

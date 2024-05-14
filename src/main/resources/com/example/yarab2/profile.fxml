@@ -7,7 +7,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yarab2.profilecontroller">
    <children>
       <Button fx:id="addnewpost" layoutX="508.0" layoutY="38.0" mnemonicParsing="false" text="add post" />
-      <Button fx:id="back" layoutX="29.0" layoutY="38.0" mnemonicParsing="false" text="back" />
+      <Button fx:id="back" layoutX="29.0" layoutY="38.0" mnemonicParsing="false" text="home" />
       <Label fx:id="username" layoutX="272.0" layoutY="78.0" text="Label" />
       <Label fx:id="bio" layoutX="272.0" layoutY="96.0" text="Label" />
       <Label fx:id="followerscount" layoutX="300.0" layoutY="114.0" text="Label" />

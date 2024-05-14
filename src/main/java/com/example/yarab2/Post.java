@@ -83,11 +83,11 @@ public class Post implements Serializable ,Comparable<Post>  {
 
 
     public int likeCount(){
-        return comments.size();
+        return likes.size();
     }
 
     public int commentCount(){
-        return likes.size();
+        return comments.size();
     }
 
     @Override
