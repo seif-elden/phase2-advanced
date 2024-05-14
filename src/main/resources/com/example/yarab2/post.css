@@ -14,7 +14,7 @@
 }
 
 .button:hover {
-    -fx-background-color: #4cae4c;
+    -fx-background-color: #bbbbbb;
 }
 .label, .label-value {
     -fx-font-size: 14;

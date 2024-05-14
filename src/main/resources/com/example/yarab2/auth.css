@@ -27,7 +27,7 @@
 }
 
 .button:hover {
-    -fx-background-color: #4cae4c;
+    -fx-background-color: #bbbbbb;
 }
 .list-cell:even {
     -fx-border-color: #000;
