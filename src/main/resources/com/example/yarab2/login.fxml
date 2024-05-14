@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yarab2.logincontroller">
-   <children>
-      <Label layoutX="129.0" layoutY="61.0" text="username" />
-      <Label layoutX="136.0" layoutY="148.0" text="password" />
-      <TextField fx:id="l_username" layoutX="272.0" layoutY="57.0" />
-      <TextField fx:id="l_password" layoutX="272.0" layoutY="144.0" />
-      <Button fx:id="login" layoutX="246.0" layoutY="271.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="130.0" text="login" />
-      <Button fx:id="s" layoutX="274.0" layoutY="346.0" mnemonicParsing="false" text="sign up" />
-   </children>
-</AnchorPane>
+<GridPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yarab2.logincontroller" alignment="center" hgap="10" vgap="10" styleClass="grid" stylesheets="@auth.css">
+   <columnConstraints>
+      <ColumnConstraints percentWidth="50" />
+      <ColumnConstraints percentWidth="50" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints percentHeight="25" />
+      <RowConstraints percentHeight="25" />
+      <RowConstraints percentHeight="25" />
+      <RowConstraints percentHeight="25" />
+   </rowConstraints>
+   <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+   <TextField fx:id="l_username" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+   <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+   <TextField fx:id="l_password" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+   <Button fx:id="login" text="Login" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+   <Button fx:id="s" text="Sign Up" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+</GridPane>

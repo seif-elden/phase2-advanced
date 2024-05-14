@@ -1,0 +1,40 @@
+.header-box, .footer-box {
+    -fx-padding: 10;
+    -fx-background-color: #f4f4f4;
+    -fx-spacing: 10;
+}
+
+.button {
+    -fx-background-color: #000;
+    -fx-text-fill: white;
+    -fx-border-radius: 5;
+    -fx-padding: 5 22;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+}
+
+.button:hover {
+    -fx-background-color: #4cae4c;
+}
+.label, .label-value {
+    -fx-font-size: 14;
+    -fx-text-fill: #333;
+    -fx-font-weight: bold;
+}
+
+.label-value {
+    -fx-text-fill: #666;
+}
+
+.list-cell:even {
+    -fx-border-color: #000;
+}
+.list-cell:odd {
+    -fx-background-color: #ded9d7;
+}
+
+.text-field {
+    -fx-pref-width: 200;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5;
+}

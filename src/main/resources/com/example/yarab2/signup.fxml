@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yarab2.signupcontrroller">
+<GridPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yarab2.signupcontrroller" alignment="center" hgap="10" vgap="10" styleClass="grid" stylesheets="@auth.css">
+   <columnConstraints>
+      <ColumnConstraints percentWidth="30" />
+      <ColumnConstraints percentWidth="70" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints percentHeight="20" />
+      <RowConstraints percentHeight="20" />
+      <RowConstraints percentHeight="20" />
+      <RowConstraints percentHeight="20" />
+      <RowConstraints percentHeight="20" />
+   </rowConstraints>
    <children>
-      <Button fx:id="signup" layoutX="432.0" layoutY="179.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="127.0" text="sign up" />
-      <Label layoutX="53.0" layoutY="54.0" prefHeight="26.0" prefWidth="71.0" text="username" />
-      <TextField fx:id="s_user" layoutX="207.0" layoutY="55.0" />
-      <TextField fx:id="s_pass" layoutX="208.0" layoutY="111.0" />
-      <TextField fx:id="s_email" layoutX="208.0" layoutY="166.0" />
-      <TextField fx:id="s_bio" layoutX="207.0" layoutY="226.0" />
-      <Label layoutX="55.0" layoutY="115.0" text="password" />
-      <Label layoutX="66.0" layoutY="183.0" text="email" />
-      <Label layoutX="71.0" layoutY="230.0" text="bio" />
-      <Label layoutX="67.0" layoutY="290.0" text="profile pic" />
-      <TextField fx:id="s_pic" layoutX="208.0" layoutY="286.0" />
-      <Button fx:id="s_redirect_login" layoutX="461.0" layoutY="273.0" mnemonicParsing="false" text="LOGIN" />
+      <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="label"/>
+      <TextField fx:id="s_user" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="text-field"/>
+      <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="label"/>
+      <TextField fx:id="s_pass" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="text-field"/>
+      <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="label"/>
+      <TextField fx:id="s_email" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="text-field"/>
+      <Label text="Bio:" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="label"/>
+      <TextField fx:id="s_bio" GridPane.columnIndex="1" GridPane.rowIndex="3" styleClass="text-field"/>
+      <Label text="Profile Pic:" GridPane.columnIndex="0" GridPane.rowIndex="4" styleClass="label"/>
+      <TextField fx:id="s_pic" GridPane.columnIndex="1" GridPane.rowIndex="4" styleClass="text-field"/>
+      <Button fx:id="signup" text="Sign Up" GridPane.columnIndex="1" GridPane.rowIndex="5" styleClass="button" GridPane.columnSpan="1"/>
+      <Button fx:id="s_redirect_login" text="LOGIN" GridPane.columnIndex="1" GridPane.rowIndex="6" styleClass="button" GridPane.columnSpan="1"/>
    </children>
-</AnchorPane>
+</GridPane>

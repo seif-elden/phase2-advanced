@@ -3,12 +3,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yarab2.homecontroller">
-   <children>
-      <Button fx:id="logout" layoutX="518.0" layoutY="28.0" mnemonicParsing="false" text="logout" />
-      <Button fx:id="profile" layoutX="427.0" layoutY="28.0" mnemonicParsing="false" text="view profile" />
-      <Label layoutX="29.0" layoutY="74.0" text="My feed" />
-      <Button fx:id="explore" layoutX="360.0" layoutY="28.0" mnemonicParsing="false" text="explore" />
-      <ListView fx:id="allposts" layoutX="14.0" layoutY="115.0" prefHeight="279.0" prefWidth="576.0" />
-   </children>
-</AnchorPane>
+<BorderPane prefHeight="400.0" prefWidth="600.0" stylesheets="@auth.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yarab2.homecontroller">
+     <top>
+        <HBox prefHeight="47.0" prefWidth="600.0">
+           <Button fx:id="logout" styleClass="button" text="logout" />
+           <Button fx:id="profile" styleClass="button" text="view profile" />
+           <Button fx:id="explore" styleClass="button" text="explore" />
+        </HBox>
+     </top>
+      <center>
+         <VBox>
+            <Label layoutX="29.0" layoutY="74.0" text="My feed" />
+            <ListView fx:id="allposts" layoutX="14.0" layoutY="115.0" prefHeight="476.0" prefWidth="600.0" />
+         </VBox>
+      </center>
+
+</BorderPane>

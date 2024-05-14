@@ -59,21 +59,30 @@ public class viewotherscontroller implements Initializable {
         showuserposts(); // Update posts list
         if (networking.currentUser.checkfollow(this.currentUser)){
             this.followuser.setVisible(false);
+            this.followuser.setManaged(false);
+
         }else {
             this.unfollowuser.setVisible(false);
+            this.unfollowuser.setManaged(false);
         }
     }
 
     private void followetheuser() {
         networking.currentUser.addFollow(this.currentUser);
         this.followuser.setVisible(false);
+        this.followuser.setManaged(false);
+
         this.unfollowuser.setVisible(true);
+        this.unfollowuser.setManaged(true);
     }
 
     private void unfollowetheuser() {
         networking.currentUser.removeFollow(this.currentUser);
         this.followuser.setVisible(true);
+        this.followuser.setManaged(true);
+
         this.unfollowuser.setVisible(false);
+        this.unfollowuser.setManaged(false);
     }
 
     private void showuserdata(){
