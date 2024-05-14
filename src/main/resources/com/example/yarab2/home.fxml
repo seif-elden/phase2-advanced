@@ -8,5 +8,6 @@
       <Button fx:id="logout" layoutX="518.0" layoutY="28.0" mnemonicParsing="false" text="logout" />
       <Button fx:id="profile" layoutX="427.0" layoutY="28.0" mnemonicParsing="false" text="view profile" />
       <Label layoutX="29.0" layoutY="74.0" text="My feed" />
+      <Button fx:id="explore" layoutX="360.0" layoutY="28.0" mnemonicParsing="false" text="explore" />
    </children>
 </AnchorPane>

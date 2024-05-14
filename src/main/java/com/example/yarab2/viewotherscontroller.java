@@ -19,9 +19,11 @@ import java.util.ResourceBundle;
 import static com.example.yarab2.HelloApplication.networking;
 
 
-public class profilecontroller implements Initializable {
+public class viewotherscontroller implements Initializable {
     @FXML
-    private Button addnewpost;
+    private Button followuser;
+    @FXML
+    private Button unfollowuser;
     @FXML
     private Button back;
     @FXML
@@ -37,42 +39,54 @@ public class profilecontroller implements Initializable {
     @FXML
     private ImageView profileimg;
 
+    private profile currentUser; // To hold the passed profile
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setupButtonActions();
-        showuserdata();
-        showuserposts();
     }
     private void setupButtonActions() {
-        addnewpost.setOnAction(event -> redirectToaddpost());
+        followuser.setOnAction(event -> followetheuser());
+        unfollowuser.setOnAction(event -> unfollowetheuser());
         back.setOnAction(event -> goback());
     }
 
-    private void redirectToaddpost() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("addpost.fxml")); // Ensure the path is correct
-            Scene scene = new Scene(loader.load());
-            Stage stage = (Stage) addnewpost.getScene().getWindow();
-            stage.setScene(scene);
-            stage.setTitle("add post!");
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void initData(profile prof) {
+        this.currentUser = prof; // Store the profile
+        showuserdata(); // Update UI with profile data
+        showuserposts(); // Update posts list
+        if (networking.currentUser.checkfollow(this.currentUser)){
+            this.followuser.setVisible(false);
+        }else {
+            this.unfollowuser.setVisible(false);
         }
+    }
+
+    private void followetheuser() {
+        networking.currentUser.addFollow(this.currentUser);
+        this.followuser.setVisible(false);
+        this.unfollowuser.setVisible(true);
+    }
+
+    private void unfollowetheuser() {
+        networking.currentUser.removeFollow(this.currentUser);
+        this.followuser.setVisible(true);
+        this.unfollowuser.setVisible(false);
     }
 
     private void showuserdata(){
         Image image = new Image("file:///C:/Users/DELL/IdeaProjects/yarab2/src/main/resources/com/example/yarab2/download.png"); // or URL for external images
         profileimg.setImage(image);
-        username.setText(networking.currentUser.getUsername());
-        bio.setText(networking.currentUser.getBio());
-        followerscount.setText(""+networking.currentUser.getfollowerscount());
-        postcount.setText(""+networking.currentUser.getpostscount());
+        username.setText(this.currentUser.getUsername());
+        bio.setText(this.currentUser.getBio());
+        followerscount.setText(""+this.currentUser.getfollowerscount());
+        postcount.setText(""+this.currentUser.getpostscount());
     }
     private void showuserposts(){
         // Set up the ListView
-        myposts.setItems(javafx.collections.FXCollections.observableArrayList(networking.currentUser.getPostlist()));
+        myposts.setItems(javafx.collections.FXCollections.observableArrayList(this.currentUser.getPostlist()));
         myposts.setCellFactory(param -> new ListCell<Post>() {
             @Override
             protected void updateItem(Post post, boolean empty) {
@@ -83,9 +97,9 @@ public class profilecontroller implements Initializable {
                 } else {
                     // Custom display text for each post
                     setText(
-                           "content : " + post.getContent() +"\n" +
-                            "number of likes : " + post.likeCount() +"\n" +
-                            "number of comments : " + post.commentCount() +"\n"
+                            "content : " + post.getContent() +"\n" +
+                                    "number of likes : " + post.likeCount() +"\n" +
+                                    "number of comments : " + post.commentCount() +"\n"
 
                     );  // Adjust this line to display whatever details you want
                 }

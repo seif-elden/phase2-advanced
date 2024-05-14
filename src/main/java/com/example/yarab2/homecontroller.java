@@ -28,8 +28,12 @@ public class homecontroller implements Initializable {
     @FXML
     private Button profile;
 
+    @FXML
+    private Button explore;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.followedPostlist = new ArrayList<>();
         loadposts();
         setupButtonActions();
 
@@ -38,6 +42,7 @@ public class homecontroller implements Initializable {
         for (profile x : networking.currentUser.getFollowlist()){
             // render post in home page
             followedPostlist.addAll(x.getPostlist());
+
         }
         if (followedPostlist != null){
             Collections.sort(followedPostlist);
@@ -51,6 +56,7 @@ public class homecontroller implements Initializable {
     private void setupButtonActions() {
         logout.setOnAction(event -> logoutfunction());
         profile.setOnAction(event -> myprofile());
+        explore.setOnAction(event -> exploreredirect());
     }
     private void myprofile() {
         try {
@@ -73,6 +79,19 @@ public class homecontroller implements Initializable {
             Stage stage = (Stage) logout.getScene().getWindow();
             stage.setScene(scene);
             stage.setTitle("login!");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void exploreredirect() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("theexplore.fxml")); // Ensure the path is correct
+            Scene scene = new Scene(loader.load());
+            Stage stage = (Stage) explore.getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("explore!");
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

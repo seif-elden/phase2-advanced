@@ -80,6 +80,18 @@ public class profile implements Serializable {
             db.update(HelloApplication.getNetworking().getprofiles());
         }
     }
+    public void removeFollow(profile user){
+        if (followlist.contains(user)){
+            followlist.remove(user);
+            db.update(HelloApplication.getNetworking().getprofiles());
+        }
+    }
+    public boolean checkfollow(profile user){
+        if (followlist.contains(user)){
+            return true;
+        }
+        return false;
+    }
 
     public void addpost(String content ){
         Postlist.add(new Post(content,this));
