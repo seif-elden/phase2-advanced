@@ -31,6 +31,10 @@ public class homecontroller implements Initializable {
 
     @FXML
     private Button explore;
+
+    @FXML
+    private Button exploreposts;
+
     @FXML
     private ListView<Post> allposts;
 
@@ -88,7 +92,7 @@ public class homecontroller implements Initializable {
 
         }
         if (followedPostlist != null){
-            Collections.sort(followedPostlist);
+            followedPostlist.sort(Collections.reverseOrder());
             System.out.println(followedPostlist);
         }
         else {
@@ -100,6 +104,7 @@ public class homecontroller implements Initializable {
         logout.setOnAction(event -> logoutfunction());
         profile.setOnAction(event -> myprofile());
         explore.setOnAction(event -> exploreredirect());
+        exploreposts.setOnAction(actionEvent -> goexploreposts());
     }
     private void myprofile() {
         try {
@@ -134,12 +139,26 @@ public class homecontroller implements Initializable {
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) explore.getScene().getWindow();
             stage.setScene(scene);
-            stage.setTitle("explore!");
+            stage.setTitle("explore users!");
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    private void goexploreposts() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("exploreposts.fxml")); // Ensure the path is correct
+            Scene scene = new Scene(loader.load());
+            Stage stage = (Stage) explore.getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("explore posts!");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
 }

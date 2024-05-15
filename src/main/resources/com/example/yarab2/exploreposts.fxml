@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yarab2.explorepostscontroller" stylesheets="@auth.css">
+    <top>
+        <Button fx:id="back" text="Home" styleClass="button" maxWidth="Infinity"/>
+    </top>
+    <center>
+        <ListView fx:id="allposts" prefHeight="200.0" prefWidth="200.0" styleClass="list-view"/>
+    </center>
+
+</BorderPane>

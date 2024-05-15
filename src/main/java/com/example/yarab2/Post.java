@@ -98,6 +98,7 @@ public class Post implements Serializable ,Comparable<Post>  {
                 "likes= " + likes.size() ;
     }
 
+    @Override
     public int compareTo(Post other) {
         return this.timestamp.compareTo(other.timestamp);
     }
