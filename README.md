@@ -27,4 +27,5 @@ To deploy this project:
 
 - [YouTube Video](https://youtu.be/b4XRnrbL1zA)
 - [Documentation](https://1drv.ms/w/c/b0675a3fd69343f3/EXoA2WEuoVpJrE2dTnJbBaQBY4Cupy7-1xmC6190lsKLMA?e=MilDnL)
--[github](https://github.com/seif-elden/phase2-advanced)
+
+- [github](https://github.com/seif-elden/phase2-advanced)
