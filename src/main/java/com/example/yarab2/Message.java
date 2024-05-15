@@ -8,7 +8,7 @@ public class Message implements Serializable {
     private String message;
     private LocalDateTime timestamp;
 
-    public Message(profile sender, String content) {
+    public Message(profile sender, String message) {
         this.sender = sender;
         this.message = message;
         this.timestamp = LocalDateTime.now();

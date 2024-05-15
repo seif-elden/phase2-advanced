@@ -43,18 +43,6 @@ public class viewotherscontroller implements Initializable {
 
     private profile currentUser; // To hold the passed profile
 
-
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        setupButtonActions();
-    }
-    private void setupButtonActions() {
-        followuser.setOnAction(event -> followetheuser());
-        unfollowuser.setOnAction(event -> unfollowetheuser());
-        back.setOnAction(event -> goback());
-        chat.setOnAction(event -> goback());
-    }
     @FXML
     private void viewfollwinfo(){
         try {
@@ -70,6 +58,18 @@ public class viewotherscontroller implements Initializable {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        setupButtonActions();
+    }
+    private void setupButtonActions() {
+        followuser.setOnAction(event -> followetheuser());
+        unfollowuser.setOnAction(event -> unfollowetheuser());
+        back.setOnAction(event -> goback());
+        chat.setOnAction(event -> gochat());
+    }
+
     public void initData(profile prof) {
         this.chat.setVisible(false);
         this.chat.setManaged(false);
@@ -150,6 +150,21 @@ public class viewotherscontroller implements Initializable {
             Stage stage = (Stage) back.getScene().getWindow();
             stage.setScene(scene);
             stage.setTitle("post profile!");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void gochat(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("chat.fxml")); // Ensure the path is correct
+            Scene scene = new Scene(loader.load());
+            chatcontroller controller = loader.getController(); // Retrieve the controller
+            controller.initData(this.currentUser); // Pass the profile to the controller
+            Stage stage = (Stage) back.getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("chats!");
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

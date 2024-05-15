@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yarab2.editprofilcontroller" alignment="center" hgap="10" vgap="10" styleClass="grid" stylesheets="@auth.css">
+    <columnConstraints>
+        <ColumnConstraints percentWidth="30" />
+        <ColumnConstraints percentWidth="70" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints percentHeight="20" />
+        <RowConstraints percentHeight="20" />
+        <RowConstraints percentHeight="20" />
+        <RowConstraints percentHeight="20" />
+        <RowConstraints percentHeight="20" />
+    </rowConstraints>
+    <children>
+        <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="label"/>
+        <TextField fx:id="s_email" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="text-field"/>
+        <Label text="Bio:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="label"/>
+        <TextField fx:id="s_bio" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="text-field"/>
+        <Label text="Profile Pic:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="label"/>
+        <TextField fx:id="s_pic" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="text-field"/>
+        <Button fx:id="submit" text="submit" GridPane.columnIndex="1" GridPane.rowIndex="3" styleClass="button" GridPane.columnSpan="1"/>
+        <Button fx:id="cancel" text="cancel " GridPane.columnIndex="1" GridPane.rowIndex="4" styleClass="button" GridPane.columnSpan="1"/>
+
+    </children>
+</GridPane>

@@ -115,6 +115,7 @@ public class profile implements Serializable {
             Chat newChat = new Chat(this, user);
             this.chats.add(newChat);
             user.chats.add(newChat);
+            db.update(HelloApplication.getNetworking().getprofiles());
         }
     }
     public boolean checkchat(profile user){
@@ -124,6 +125,15 @@ public class profile implements Serializable {
             }
         }
         return false;
+    }
+
+    public Chat getChats(profile user) {
+        for (Chat chat : chats) {
+            if (chat.getParticipantOne() == user || chat.getParticipantTwo() == user) {
+                return chat;
+            }
+        }
+        return null;
     }
 
     @Override

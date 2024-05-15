@@ -2,10 +2,9 @@ package com.example.yarab2;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Chat implements Serializable {
-    private List<Message> messages;
+    private ArrayList<Message> messages;
     private profile participantOne;
     private profile participantTwo;
 
@@ -17,8 +16,9 @@ public class Chat implements Serializable {
     public void sendMessage(profile sender,String content) {
         Message msg = new Message(sender, content);
         messages.add(msg);
+        db.update(HelloApplication.getNetworking().getprofiles());
     }
-    public List<Message> getMessages() {
+    public ArrayList<Message> getMessages() {
         return messages;
     }
 

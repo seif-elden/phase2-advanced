@@ -24,6 +24,10 @@ public class profilecontroller implements Initializable {
     private Button addnewpost;
     @FXML
     private Button back;
+
+    @FXML
+    private Button  editprof;
+
     @FXML
     private Label username;
     @FXML
@@ -47,8 +51,20 @@ public class profilecontroller implements Initializable {
     private void setupButtonActions() {
         addnewpost.setOnAction(event -> redirectToaddpost());
         back.setOnAction(event -> goback());
+        editprof.setOnAction(actionEvent -> goedit());
     }
-
+    private void goedit() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("editprofile.fxml")); // Ensure the path is correct
+            Scene scene = new Scene(loader.load());
+            Stage stage = (Stage) addnewpost.getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("edit profile!");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     @FXML
     private void viewfollwinfo(){
         try {
