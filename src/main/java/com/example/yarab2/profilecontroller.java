@@ -49,6 +49,22 @@ public class profilecontroller implements Initializable {
         back.setOnAction(event -> goback());
     }
 
+    @FXML
+    private void viewfollwinfo(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("followinglist.fxml")); // Ensure the path is correct
+            Scene scene = new Scene(loader.load());
+            followinglistcontroller controller = loader.getController(); // Retrieve the controller
+            controller.initData(networking.currentUser); // Pass the profile to the controller
+            Stage stage = (Stage) addnewpost.getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("your followin!");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void redirectToaddpost() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("addpost.fxml")); // Ensure the path is correct

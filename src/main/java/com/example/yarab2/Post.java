@@ -102,4 +102,10 @@ public class Post implements Serializable ,Comparable<Post>  {
         return this.timestamp.compareTo(other.timestamp);
     }
 
+    public int compareTolikecount(Post other) {
+        Integer x = this.likeCount();
+        Integer y = other.likeCount();
+        return x.compareTo(y);
+    }
+
 }

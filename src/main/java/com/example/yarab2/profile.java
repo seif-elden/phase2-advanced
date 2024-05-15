@@ -11,7 +11,7 @@ public class profile implements Serializable {
     private String profilePic;
     private ArrayList<profile> followlist;
     private ArrayList<Post> Postlist;
-
+    private ArrayList<Chat> chats;
 
 
     public profile(String username, String password,String email, String bio, String profilePic) {
@@ -22,6 +22,7 @@ public class profile implements Serializable {
         this.profilePic = profilePic;
         this.followlist = new ArrayList<>();
         this.Postlist = new ArrayList<>();
+        this.chats = new ArrayList<>();
     }
 
 
@@ -75,8 +76,11 @@ public class profile implements Serializable {
     }
 
     public void addFollow(profile user){
-        if (!followlist.contains(user)){
+        if (!this.followlist.contains(user)){
             followlist.add(user);
+            if (user.checkfollow(this)){
+                startChatWith(user);
+            }
             db.update(HelloApplication.getNetworking().getprofiles());
         }
     }
@@ -105,7 +109,22 @@ public class profile implements Serializable {
     public int getpostscount() {
         return Postlist.size();
     }
-
+    private void startChatWith(profile user) {
+        if (!checkchat(user)){
+            System.out.println("chat started");
+            Chat newChat = new Chat(this, user);
+            this.chats.add(newChat);
+            user.chats.add(newChat);
+        }
+    }
+    public boolean checkchat(profile user){
+        for (Chat chat : chats) {
+            if (chat.getParticipantOne() == user || chat.getParticipantTwo() == user) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     @Override
     public String toString() {

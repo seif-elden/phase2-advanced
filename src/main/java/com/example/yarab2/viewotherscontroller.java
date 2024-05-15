@@ -27,6 +27,8 @@ public class viewotherscontroller implements Initializable {
     @FXML
     private Button back;
     @FXML
+    private Button chat;
+    @FXML
     private Label username;
     @FXML
     private Label bio;
@@ -51,9 +53,26 @@ public class viewotherscontroller implements Initializable {
         followuser.setOnAction(event -> followetheuser());
         unfollowuser.setOnAction(event -> unfollowetheuser());
         back.setOnAction(event -> goback());
+        chat.setOnAction(event -> goback());
     }
-
+    @FXML
+    private void viewfollwinfo(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("followinglist.fxml")); // Ensure the path is correct
+            Scene scene = new Scene(loader.load());
+            followinglistcontroller controller = loader.getController(); // Retrieve the controller
+            controller.initData(this.currentUser); // Pass the profile to the controller
+            Stage stage = (Stage) back.getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("user following!");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void initData(profile prof) {
+        this.chat.setVisible(false);
+        this.chat.setManaged(false);
         this.currentUser = prof; // Store the profile
         showuserdata(); // Update UI with profile data
         showuserposts(); // Update posts list
@@ -64,6 +83,10 @@ public class viewotherscontroller implements Initializable {
         }else {
             this.unfollowuser.setVisible(false);
             this.unfollowuser.setManaged(false);
+        }
+        if(networking.currentUser.checkchat(this.currentUser)){
+            this.chat.setVisible(true);
+            this.chat.setManaged(true);
         }
     }
 
